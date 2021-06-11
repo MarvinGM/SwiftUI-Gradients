@@ -9,10 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color("myColor"),
+                    Color(.systemBlue),
+                    Color(.systemPink)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom)
+            .ignoresSafeArea(.all, edges: .all)
+            
+            VStack{
+                Image(systemName: "sun.max.fill")
+                    .resizable()
+                    .renderingMode(.original)
+                    .frame(width: 220, height: 220, alignment: .center)
+                    .padding()
+                
+                Text("Sunny!")
+                    .font(.system(size: 42,
+                                  weight: .semibold,
+                                  design: .default))
+                    .foregroundColor(.white)
+                
+                
+                Spacer()
+                
+            } //vstack
+
+        } //zstack
+    } //body
+} //contentview
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
